@@ -6,7 +6,7 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 23:47:03 by anfreire          #+#    #+#             */
-/*   Updated: 2023/02/28 23:57:52 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/02 02:22:18 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(int ac, char **av)
 {
 	if (ac == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
 		for (int i = 1; i < ac; i++)
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 			}
 			std::cout << av[i];
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 	}
 	return 0;
 }
