@@ -208,7 +208,7 @@ int main() {
 
 The constructor is invoked when we create an instance of a class.
 
-The destroyer is called when the instance is no longer required and is about to be removed from memory. 
+The destructor is called when the instance is no longer required and is about to be removed from memory. 
 
 &nbsp;
 
