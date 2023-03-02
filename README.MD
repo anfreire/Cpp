@@ -206,7 +206,9 @@ int main() {
 - MyClass myClassInstance - creates an instance of the class, named `myClassInstance`
 - myClassInstance - is an instance of the class, which is used to access the members of the class.
 
-When we create an instance of a class, the constructor is called. When the program ends, the destructor is called.
+The constructor is invoked when we create an instance of a class.
+
+The destroyer is called when the instance is no longer required and is about to be removed from memory. 
 
 &nbsp;
 
