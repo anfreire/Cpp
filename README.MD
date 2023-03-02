@@ -1,11 +1,3 @@
----
-id: w3977u0ieriezq3kprhxk3w
-title: C++
-desc: ''
-updated: 1677721372777
-created: 1677699228655
----
-
 <a id="home"></a>
 
 # Index
