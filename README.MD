@@ -14,6 +14,9 @@
 - [Visability](#visability)
 - [Classes vs Structs](#classes-vs-structs)
 - [Comparisons](#comparisons)
+- [Non-member attributes and Non-member functions](#non-member-attributes-and-non-member-functions)
+- [Pointers to objects](#pointers-to-objects)
+- [Conclusion](#conclusion)
 
 &nbsp;
 
