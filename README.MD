@@ -1299,6 +1299,7 @@ int main() {
 
 ## We have seen:
 <h3>
+	
 -	how to define a class
 -	how to define its attributes and functions
 -	how to define its constructors and destructors
@@ -1306,6 +1307,7 @@ int main() {
 -	how to define its static attributes and functions
 -	how to define its non-member attributes and functions
 -	how to use pointers to objects of a class.
+	
 </h3>
 
 &nbsp;
