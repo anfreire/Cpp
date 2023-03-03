@@ -1,58 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/03 01:01:35 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/03 01:11:25 by anfreire         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.hpp"
 
-bool	global::checkInput(string input)
-{
-	if (input.length() < 1)
-		return false;
-	if (input.length() == 1 && input[0] == '\n')
-		return false;
-	size_t	allSpaces = 0;
-	for (size_t i = 0; i < input.length(); i++)
-	{
-		if (input[i] == ' ')
-			allSpaces++;
-	}
-	if (allSpaces == input.length())
-		return false;
-	return true;
-}
-
-string	global::ft_itoa(int nbr)
-{
-	string	newString;
-
-	if (nbr < 0)
-	{
-		newString = "-";
-		nbr *= -1;
-	}
-	while (nbr > 0)
-	{
-		newString += (nbr % 10) + '0';
-		nbr /= 10;
-	}
-	return newString;
-}
-
-string	global::lowerCase(string str)
-{
-	for (size_t i = 0; i < str.length(); i++)
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-	}
-	return str;
-}
-
-bool	global::isNumber(string str)
-{
-	for (size_t i = 0; i < str.length(); i++)
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return false;
-	}
-	return true;
-}
 
 int main(void)
 {
@@ -68,11 +27,11 @@ int main(void)
 		cout << "+-------------------------------------------+" << endl << endl;
 		cout << "Enter a command: ";
 		getline(cin, command);
-		if (global::lowerCase(command) == "add")
+		if (lowerCase(command) == "add")
 			phoneBook.add();
-		else if (global::lowerCase(command) == "search")
+		else if (lowerCase(command) == "search")
 			phoneBook.search();
-		else if (global::lowerCase(command) == "exit")
+		else if (lowerCase(command) == "exit")
 			phoneBook.exit();
 		else
 			cout << "Invalid command!" << endl << endl;

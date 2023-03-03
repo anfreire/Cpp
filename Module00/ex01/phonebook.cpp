@@ -6,12 +6,13 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:39 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/02 19:14:39 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/03 01:12:01 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 using namespace std;
+using namespace mylib;
 
 PhoneBook::PhoneBook(void)
 {
@@ -124,7 +125,7 @@ void	PhoneBook::search(void)
 	{
 		if (i > 0)
 			cout << "+----------+----------+----------+----------+" << endl;
-		cout << "|" << this->returnPrintableSearchString(global::ft_itoa((int)(i + 1)).append(".")) << "|";
+		cout << "|" << this->returnPrintableSearchString(ft_itoa((int)(i + 1)).append(".")) << "|";
 		FirstName = this->contacts[(int)i].getterFirstName();
 		cout << this->returnPrintableSearchString(FirstName) << "|";
 		LastName = this->contacts[(int)i].getterLastName();
@@ -138,7 +139,7 @@ void	PhoneBook::search(void)
 	{
 		cout << "Enter the index of the contact you want to see: ";
 		getline(cin, index);
-		if (global::checkInput(index) && global::isNumber(index) && atoi(index.c_str()) <= this->phoneBookLength && atoi(index.c_str()) >= 1)
+		if (checkInput(index) && isNumber(index) && atoi(index.c_str()) <= this->phoneBookLength && atoi(index.c_str()) >= 1)
 		{
 			cout << endl << "First name: " << this->contacts[atoi(index.c_str()) - 1].getterFirstName() << endl;
 			cout << "Last name: " << this->contacts[atoi(index.c_str()) - 1].getterLastName() << endl;

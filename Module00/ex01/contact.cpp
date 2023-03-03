@@ -6,13 +6,14 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:45 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/02 18:28:07 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/03 01:12:17 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
 using namespace std;
+using namespace mylib;
 
 void	Contact::emptyContact(void)
 {
@@ -65,7 +66,7 @@ string Contact::getterDarkestSecret(void)
 
 bool	Contact::setterFirstName(string firstName)
 {
-	if (!global::checkInput(firstName))
+	if (!checkInput(firstName))
 		return false;
 	this->firstName = firstName;
 	return true;
@@ -73,7 +74,7 @@ bool	Contact::setterFirstName(string firstName)
 
 bool	Contact::setterLastName(string lastName)
 {
-	if (!global::checkInput(lastName))
+	if (!checkInput(lastName))
 		return false;
 	this->lastName = lastName;
 	return true;
@@ -81,7 +82,7 @@ bool	Contact::setterLastName(string lastName)
 
 bool	Contact::setterNickName(string nickName)
 {
-	if (!global::checkInput(nickName))
+	if (!checkInput(nickName))
 		return false;
 	this->nickName = nickName;
 	return true;
@@ -89,7 +90,7 @@ bool	Contact::setterNickName(string nickName)
 
 bool	Contact::setterPhoneNumber(string phoneNumber)
 {
-	if (!global::checkInput(phoneNumber) || !isdigit(phoneNumber[0]))
+	if (!checkInput(phoneNumber) || !isdigit(phoneNumber[0]))
 		return false;
 	this->phoneNumber = atoi(phoneNumber.c_str());
 	return true;
@@ -97,7 +98,7 @@ bool	Contact::setterPhoneNumber(string phoneNumber)
 
 bool	Contact::setterDarkestSecret(string darkestSecret)
 {
-	if (!global::checkInput(darkestSecret))
+	if (!checkInput(darkestSecret))
 		return false;
 	this->darkestSecret = darkestSecret;
 	return true;

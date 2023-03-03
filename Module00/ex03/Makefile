@@ -6,18 +6,21 @@
 #    By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 00:01:22 by anfreire          #+#    #+#              #
-#    Updated: 2023/03/03 01:12:49 by anfreire         ###   ########.fr        #
+#    Updated: 2023/03/03 19:53:11 by anfreire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = phonebook
+NAME = global_bank_united
 
 
-SRCS = main.cpp \
-		phonebook.cpp \
-		contact.cpp \
+LOG_FILE = 19920104_091532.log
+
+
+SRCS = tests.cpp \
+		Account.cpp \
 		mylib.cpp
+		
 
 
 OBJS = $(SRCS:.cpp=.o)
@@ -67,4 +70,13 @@ fclean : clean
 re: fclean all
 
 
-.PHONY: all clean fclean re
+diff_logs: re
+	@./$(NAME) > output.txt
+	@cut -c 18- output.txt > output_cut.txt
+	@cut -c 18- $(LOG_FILE) > log_cut.txt
+	@diff output_cut.txt log_cut.txt
+	@rm output.txt output_cut.txt log_cut.txt
+	$(MAKE) fclean
+
+
+.PHONY: all clean fclean re diff_logs

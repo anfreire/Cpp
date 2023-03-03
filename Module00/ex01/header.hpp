@@ -6,7 +6,7 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:50 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/02 18:59:55 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/03 01:11:14 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,10 @@
 # include <string>
 # include <stdlib.h>
 # include <iomanip>
+# include "mylib.hpp"
 
 using namespace std;
-
-namespace global
-{
-	bool	checkInput(string input);
-	string	ft_itoa(int nbr);
-	string	lowerCase(string str);
-	bool	isNumber(string str);
-}
-
-
-string	ft_itoa(int nbr);
+using namespace mylib;
 
 
 
