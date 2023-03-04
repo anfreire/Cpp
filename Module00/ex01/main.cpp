@@ -6,7 +6,7 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:01:35 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/03 01:11:25 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:15:09 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 int main(void)
 {
 	PhoneBook	phoneBook;
-	string		command;
+	std::string		command;
 
 	while (1)
 	{
-		cout << "+-------------------------------------------+" << endl;
-		cout << "+      AWESOME     PHONEBOOK      MENU      +" << endl;
-		cout << "+-------------------------------------------+" << endl;
-		cout << "| Commands:|    ADD   |  SEARCH  |   EXIT   |" << endl;
-		cout << "+-------------------------------------------+" << endl << endl;
-		cout << "Enter a command: ";
-		getline(cin, command);
-		if (lowerCase(command) == "add")
+		std::cout << "+-------------------------------------------+" << std::endl;
+		std::cout << "+      AWESOME     PHONEBOOK      MENU      +" << std::endl;
+		std::cout << "+-------------------------------------------+" << std::endl;
+		std::cout << "| Commands:|    ADD   |  SEARCH  |   EXIT   |" << std::endl;
+		std::cout << "+-------------------------------------------+" << std::endl << std::endl;
+		std::cout << "Enter a command: ";
+		getline(std::cin, command);
+		if (mylib::lowerCase(command) == "add")
 			phoneBook.add();
-		else if (lowerCase(command) == "search")
+		else if (mylib::lowerCase(command) == "search")
 			phoneBook.search();
-		else if (lowerCase(command) == "exit")
+		else if (mylib::lowerCase(command) == "exit")
 			phoneBook.exit();
 		else
-			cout << "Invalid command!" << endl << endl;
+			std::cout << "Invalid command!" << std::endl << std::endl;
 	}
 	return 0;
 }

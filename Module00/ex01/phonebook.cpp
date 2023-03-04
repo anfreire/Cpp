@@ -6,13 +6,11 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:39 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/03 01:12:01 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:16:02 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
-using namespace std;
-using namespace mylib;
 
 PhoneBook::PhoneBook(void)
 {
@@ -26,51 +24,51 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::add(void)
 {
-	string 	firstName;
-	string 	lastName;
-	string 	nickName;
-	string	phoneNumberString;
-	string 	darkestSecret;
+	std::string 	firstName;
+	std::string 	lastName;
+	std::string 	nickName;
+	std::string		phoneNumberString;
+	std::string 	darkestSecret;
 	Contact	newContact;
 	while (1)
 	{
-		cout << endl << "Enter first name: ";
-		getline(cin, firstName);
+		std::cout << std::endl << "Enter first name: ";
+		getline(std::cin, firstName);
 		if (newContact.setterFirstName(firstName))
 			break;
-		cout << "Invalid first name!" << endl;
+		std::cout << "Invalid first name!" << std::endl;
 	}
 	while (1)
 	{
-		cout << endl << "Enter last name: ";
-		getline(cin, lastName);
+		std::cout << std::endl << "Enter last name: ";
+		getline(std::cin, lastName);
 		if (newContact.setterLastName(lastName))
 			break;
-		cout << "Invalid last name!" << endl;
+		std::cout << "Invalid last name!" << std::endl;
 	}
 	while (1)
 	{
-		cout << endl << "Enter nickname: ";
-		getline(cin, nickName);
+		std::cout << std::endl << "Enter nickname: ";
+		getline(std::cin, nickName);
 		if (newContact.setterNickName(nickName))
 			break;
-		cout << "Invalid nickname!" << endl;
+		std::cout << "Invalid nickname!" << std::endl;
 	}
 	while (1)
 	{
-		cout << endl << "Enter phone number: ";
-		getline(cin, phoneNumberString);
+		std::cout << std::endl << "Enter phone number: ";
+		getline(std::cin, phoneNumberString);
 		if (newContact.setterPhoneNumber(phoneNumberString))
 			break;
-		cout << "Invalid phone number!" << endl;
+		std::cout << "Invalid phone number!" << std::endl;
 	}
 	while (1)
 	{
-		cout << endl << "Enter darkest secrest: ";
-		getline(cin, darkestSecret);
+		std::cout << std::endl << "Enter darkest secrest: ";
+		getline(std::cin, darkestSecret);
 		if (newContact.setterDarkestSecret(darkestSecret))
 			break;
-		cout << "Invalid darkest secret!" << endl;
+		std::cout << "Invalid darkest secret!" << std::endl;
 	}
 	if (this->phoneBookLength == 8)
 	{
@@ -79,20 +77,20 @@ void	PhoneBook::add(void)
 			this->contacts[i] = this->contacts[i + 1];
 		}
 		this->contacts[7] = newContact;
-		cout << endl << "Contact successfully added!" << endl << endl;
+		std::cout << std::endl << "Contact successfully added!" << std::endl << std::endl;
 		return;
 	}
 	this->contacts[this->phoneBookLength] = newContact;
 	this->phoneBookLength++;
-	cout << "Contact successfully added!" << endl << endl;
+	std::cout << "Contact successfully added!" << std::endl << std::endl;
 	return;
 
 }
 
-string	PhoneBook::returnPrintableSearchString(string oldString)
+std::string	PhoneBook::returnPrintableSearchString(std::string oldString)
 {
-	string	smallerNamesBuffer = "          ";
-	string	newString;
+	std::string	smallerNamesBuffer = "          ";
+	std::string	newString;
 
 	if (oldString.length() > 9)
 	{
@@ -104,51 +102,51 @@ string	PhoneBook::returnPrintableSearchString(string oldString)
 		newString = oldString;
 		newString.append(smallerNamesBuffer.substr(0, 10 - oldString.length()));
 	}
-	return ((string)newString);
+	return ((std::string)newString);
 }
 
 void	PhoneBook::search(void)
 {
-	string 			FirstName;
-	string			LastName;
-	string			NickName;
+	std::string 			FirstName;
+	std::string			LastName;
+	std::string			NickName;
 
 	if (this->phoneBookLength == 0)
 	{
-		cout << "Phonebook is empty!" << endl << endl;
+		std::cout << "Phonebook is empty!" << std::endl << std::endl;
 		return;
 	}
-	cout << endl << "+-------------------------------------------+" << endl;
-	cout << "|   Index  |First Name| Last Name| Nickname |" << endl;
-	cout << "+----------+----------+----------+----------+" << endl;
+	std::cout << std::endl << "+-------------------------------------------+" << std::endl;
+	std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	for (size_t i = 0; (int)i < this->phoneBookLength; i++)
 	{
 		if (i > 0)
-			cout << "+----------+----------+----------+----------+" << endl;
-		cout << "|" << this->returnPrintableSearchString(ft_itoa((int)(i + 1)).append(".")) << "|";
+			std::cout << "+----------+----------+----------+----------+" << std::endl;
+		std::cout << "|" << this->returnPrintableSearchString(mylib::ft_itoa((int)(i + 1)).append(".")) << "|";
 		FirstName = this->contacts[(int)i].getterFirstName();
-		cout << this->returnPrintableSearchString(FirstName) << "|";
+		std::cout << this->returnPrintableSearchString(FirstName) << "|";
 		LastName = this->contacts[(int)i].getterLastName();
-		cout << this->returnPrintableSearchString(LastName) << "|";
+		std::cout << this->returnPrintableSearchString(LastName) << "|";
 		NickName = this->contacts[(int)i].getterNickName();
-		cout << this->returnPrintableSearchString(NickName) << "|" << endl;
+		std::cout << this->returnPrintableSearchString(NickName) << "|" << std::endl;
 	}
-	cout << "+-------------------------------------------+" << endl << endl;
-	string	index;
+	std::cout << "+-------------------------------------------+" << std::endl << std::endl;
+	std::string	index;
 	while (1)
 	{
-		cout << "Enter the index of the contact you want to see: ";
-		getline(cin, index);
-		if (checkInput(index) && isNumber(index) && atoi(index.c_str()) <= this->phoneBookLength && atoi(index.c_str()) >= 1)
+		std::cout << "Enter the index of the contact you want to see: ";
+		getline(std::cin, index);
+		if (mylib::checkInput(index) && mylib::isNumber(index) && atoi(index.c_str()) <= this->phoneBookLength && atoi(index.c_str()) >= 1)
 		{
-			cout << endl << "First name: " << this->contacts[atoi(index.c_str()) - 1].getterFirstName() << endl;
-			cout << "Last name: " << this->contacts[atoi(index.c_str()) - 1].getterLastName() << endl;
-			cout << "Nickname: " << this->contacts[atoi(index.c_str()) - 1].getterNickName() << endl;
-			cout << "Phone number: " << this->contacts[atoi(index.c_str()) - 1].getterPhoneNumber() << endl;
-			cout << "Darkest Secret: " << this->contacts[atoi(index.c_str()) - 1].getterDarkestSecret() << endl << endl;
+			std::cout << std::endl << "First name: " << this->contacts[atoi(index.c_str()) - 1].getterFirstName() << std::endl;
+			std::cout << "Last name: " << this->contacts[atoi(index.c_str()) - 1].getterLastName() << std::endl;
+			std::cout << "Nickname: " << this->contacts[atoi(index.c_str()) - 1].getterNickName() << std::endl;
+			std::cout << "Phone number: " << this->contacts[atoi(index.c_str()) - 1].getterPhoneNumber() << std::endl;
+			std::cout << "Darkest Secret: " << this->contacts[atoi(index.c_str()) - 1].getterDarkestSecret() << std::endl << std::endl;
 			return;
 		}
-		cout << "Invalid index!" << endl;
+		std::cout << "Invalid index!" << std::endl;
 	}
 	
 }

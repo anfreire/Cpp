@@ -92,9 +92,9 @@ int main() {
 - std::cout - prints to the console
 - std::endl - prints a new line
   
-`cout` is an object of the ostream class, which is defined in the iostream library, stands for "character output stream". We use the insertion operator (`<<`) to insert a string into the output stream, by redirecting the output stream to the console.
+`std::cout` is an object of the ostream class, which is defined in the iostream library, stands for "character output stream". We use the insertion operator (`<<`) to insert a std::string into the output stream, by redirecting the output stream to the console.
 
-`endl` is an object of the ostream class, which is defined in the iostream library, stands for "end of line". We use the insertion operator (`<<`) to insert a string into the output stream, by redirecting the output stream to the console.
+`std::endl` is an object of the ostream class, which is defined in the iostream library, stands for "end of line". We use the insertion operator (`<<`) to insert a std::string into the output stream, by redirecting the output stream to the console.
 
 &nbsp;
 
@@ -121,7 +121,7 @@ int main() {
 - std::cout - prints to the console
 - std::cin - reads from the console
 
-`cin` is an object of the istream class, which is defined in the iostream library, stands for "character input stream". We use the extraction operator (`>>`) to extract a string from the input stream, by redirecting the input stream from the console.
+`std::cin` is an object of the istream class, which is defined in the iostream library, stands for "character input stream". We use the extraction operator (`>>`) to extract a std::string from the input stream, by redirecting the input stream from the console.
 
 &nbsp;
 

@@ -6,7 +6,7 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:50 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/03 01:11:14 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:11:17 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@
 # include <iostream>
 # include <string>
 # include <stdlib.h>
-# include <iomanip>
 # include "mylib.hpp"
-
-using namespace std;
-using namespace mylib;
-
-
 
 class Contact
 {
@@ -31,26 +25,26 @@ class Contact
 
 		Contact(void);
 		~Contact(void);
-		string 	getterFirstName(void);
-		string 	getterLastName(void);
-		string	getterNickName(void);
-		bool	setterFirstName(string firstName);
-		bool	setterLastName(string lastName);
-		bool	setterNickName(string nickName);
-		bool	setterPhoneNumber(string phoneNumber);
-		bool	setterDarkestSecret(string darkestSecret);
+		std::string 	getterFirstName(void);
+		std::string 	getterLastName(void);
+		std::string		getterNickName(void);
+		bool			setterFirstName(std::string firstName);
+		bool			setterLastName(std::string lastName);
+		bool			setterNickName(std::string nickName);
+		bool			setterPhoneNumber(std::string phoneNumber);
+		bool			setterDarkestSecret(std::string darkestSecret);
 		unsigned int 	getterPhoneNumber(void);
 		void			emptyContact(void);
-		string 	getterDarkestSecret(void);
+		std::string 	getterDarkestSecret(void);
 
 
 	private:
 
-		string 	firstName;
-		string 	lastName;
-		string	nickName;
+		std::string 	firstName;
+		std::string 	lastName;
+		std::string		nickName;
 		unsigned int 	phoneNumber;
-		string 	darkestSecret;
+		std::string 	darkestSecret;
 
 };
 
@@ -66,7 +60,7 @@ class PhoneBook
 
 	private:
 		Contact			contacts[8];
-		string			returnPrintableSearchString(string oldString);
+		std::string		returnPrintableSearchString(std::string oldString);
 		static int		phoneBookLength;
 };
 

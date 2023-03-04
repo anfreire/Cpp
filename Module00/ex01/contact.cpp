@@ -6,14 +6,11 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 03:19:45 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/03 01:12:17 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:14:39 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
-
-using namespace std;
-using namespace mylib;
 
 void	Contact::emptyContact(void)
 {
@@ -39,17 +36,17 @@ Contact::~Contact(void)
 	return;
 }
 
-string	Contact::getterFirstName(void)
+std::string	Contact::getterFirstName(void)
 {
 	return this->firstName;
 }
 
-string	Contact::getterLastName(void)
+std::string	Contact::getterLastName(void)
 {
 	return this->lastName;
 }
 
-string	Contact::getterNickName(void)
+std::string	Contact::getterNickName(void)
 {
 	return this->nickName;
 }
@@ -59,46 +56,46 @@ unsigned int Contact::getterPhoneNumber(void)
 	return this->phoneNumber;
 }
 
-string Contact::getterDarkestSecret(void)
+std::string Contact::getterDarkestSecret(void)
 {
 	return this->darkestSecret;
 }
 
-bool	Contact::setterFirstName(string firstName)
+bool	Contact::setterFirstName(std::string firstName)
 {
-	if (!checkInput(firstName))
+	if (!mylib::checkInput(firstName))
 		return false;
 	this->firstName = firstName;
 	return true;
 }
 
-bool	Contact::setterLastName(string lastName)
+bool	Contact::setterLastName(std::string lastName)
 {
-	if (!checkInput(lastName))
+	if (!mylib::checkInput(lastName))
 		return false;
 	this->lastName = lastName;
 	return true;
 }
 
-bool	Contact::setterNickName(string nickName)
+bool	Contact::setterNickName(std::string nickName)
 {
-	if (!checkInput(nickName))
+	if (!mylib::checkInput(nickName))
 		return false;
 	this->nickName = nickName;
 	return true;
 }
 
-bool	Contact::setterPhoneNumber(string phoneNumber)
+bool	Contact::setterPhoneNumber(std::string phoneNumber)
 {
-	if (!checkInput(phoneNumber) || !isdigit(phoneNumber[0]))
+	if (!mylib::checkInput(phoneNumber) || !isdigit(phoneNumber[0]))
 		return false;
 	this->phoneNumber = atoi(phoneNumber.c_str());
 	return true;
 }
 
-bool	Contact::setterDarkestSecret(string darkestSecret)
+bool	Contact::setterDarkestSecret(std::string darkestSecret)
 {
-	if (!checkInput(darkestSecret))
+	if (!mylib::checkInput(darkestSecret))
 		return false;
 	this->darkestSecret = darkestSecret;
 	return true;

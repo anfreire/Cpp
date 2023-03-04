@@ -6,15 +6,13 @@
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:06:46 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/03 01:41:28 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/04 17:16:24 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylib.hpp"
 
-using namespace std;
-
-bool	mylib::checkInput(string input)
+bool	mylib::checkInput(std::string input)
 {
 	if (input.length() < 1)
 		return false;
@@ -31,9 +29,9 @@ bool	mylib::checkInput(string input)
 	return true;
 }
 
-string	mylib::ft_itoa(int nbr)
+std::string	mylib::ft_itoa(int nbr)
 {
-	string	newString;
+	std::string	newString;
 
 	if (nbr < 0)
 	{
@@ -41,12 +39,12 @@ string	mylib::ft_itoa(int nbr)
 		nbr *= -1;
 	}
 	if (nbr >= 10)
-		newString += ft_itoa(nbr / 10);
+		newString += mylib::ft_itoa(nbr / 10);
 	newString += (nbr % 10) + '0';
 	return newString;
 }
 
-string	mylib::lowerCase(string str)
+std::string	mylib::lowerCase(std::string str)
 {
 	for (size_t i = 0; i < str.length(); i++)
 	{
@@ -56,7 +54,7 @@ string	mylib::lowerCase(string str)
 	return str;
 }
 
-bool	mylib::isNumber(string str)
+bool	mylib::isNumber(std::string str)
 {
 	for (size_t i = 0; i < str.length(); i++)
 	{
