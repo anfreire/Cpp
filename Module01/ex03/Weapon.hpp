@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/05 15:51:55 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/05 21:12:18 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 # include <iostream>
-# include <string>
 
-namespace mylib
+class Weapon
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
+
+	public:
+        Weapon(std::string  type);
+        ~Weapon(void);
+		std::string	getType(void);
+		void		setType(std::string type);		
+
+	private:
+		std::string	type;
+		
 };
+
 
 #endif

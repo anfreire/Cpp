@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/05 16:07:54 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/05 21:17:46 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 # include <iostream>
-# include <string>
+# include "Weapon.hpp"
 
-namespace mylib
+class HumanB
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
+	public:
+        HumanB(std::string name);
+        ~HumanB(void);
+        void    setWeapon(Weapon &weapon);
+        void    attack(void);
+
+
+	private:
+        std::string name;
+        Weapon      *weaponPointer;
+	
 };
 
 #endif

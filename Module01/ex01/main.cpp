@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/04 18:21:37 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/05 13:32:26 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <string>
-
-namespace mylib
+int main(void)
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
-};
+	Zombie	*horde = zombieHorde(4 , "foo");
+	
+	for (int i = 0; i < 4; i++)
+	{
+		Zombie tmp = horde[i];
+		tmp.announce();
+	}
 
-#endif
+	delete[] horde;
+	
+	return (0);
+}

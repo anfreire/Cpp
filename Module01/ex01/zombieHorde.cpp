@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/04 20:11:28 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/05 13:32:54 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <string>
-
-namespace mylib
+Zombie* zombieHorde( int N, std::string name )
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
-};
+	Zombie* horde = new Zombie[N];
 
-#endif
+    for (int i = 0; i < N; i++) {
+        horde[i] = Zombie(name);
+    }
+
+    return &horde[0];
+}

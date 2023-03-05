@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/05 16:27:36 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/05 21:17:08 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#include "HumanB.hpp"
 
-# include <iostream>
-# include <string>
-
-namespace mylib
+HumanB::HumanB(std::string name)
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
-};
+    this->name = name;
+}
 
-#endif
+HumanB::~HumanB(void)
+{
+    std::cout << this->name << " is dead" << std::endl;
+    return;
+}
+
+void    HumanB::setWeapon(Weapon &weapon)
+{
+    this->weaponPointer = &weapon;
+}
+
+void    HumanB::attack(void)
+{
+    std::cout << this->name << " attacks with their " << this->weaponPointer->getType() << std::endl;
+}

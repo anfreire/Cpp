@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mylib.hpp                                          :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 01:01:27 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 23:05:43 by anfreire         ###   ########.fr       */
+/*   Created: 2023/03/04 17:41:41 by anfreire          #+#    #+#             */
+/*   Updated: 2023/03/04 20:05:46 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYLIB_HPP
-# define MYLIB_HPP
+#include <iostream>
 
-# include <iostream>
-# include <string>
-
-namespace mylib
+class Zombie
 {
-	bool			checkInput(std::string input);
-	std::string		ft_itoa(int nbr);
-	std::string		lowerCase(std::string str);
-	bool			isNumber(std::string str);
+	public:
+		Zombie(std::string name);
+		~Zombie(void);
+		void	announce( void );
+
+	private:
+		std::string		_name;
+	
 };
 
-#endif
+Zombie* newZombie( std::string name );
+void 	randomChump( std::string name );
+
