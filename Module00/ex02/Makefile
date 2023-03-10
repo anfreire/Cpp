@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: anfreire <anfreire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 00:01:22 by anfreire          #+#    #+#              #
-#    Updated: 2023/03/03 19:53:11 by anfreire         ###   ########.fr        #
+#    Updated: 2023/03/10 16:13:55 by anfreire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ LOG_FILE = 19920104_091532.log
 
 SRCS = tests.cpp \
 		Account.cpp \
-		mylib.cpp
 		
 
 
@@ -77,6 +76,14 @@ diff_logs: re
 	@diff output_cut.txt log_cut.txt
 	@rm output.txt output_cut.txt log_cut.txt
 	$(MAKE) fclean
+
+
+check_leaks: re
+	@echo
+	@echo "\033[1;31m🔎 Checking for leaks...\033[0m"
+	@echo
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+    
 
 
 .PHONY: all clean fclean re diff_logs

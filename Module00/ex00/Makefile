@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: anfreire <anfreire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 00:01:22 by anfreire          #+#    #+#              #
-#    Updated: 2023/03/01 19:32:24 by anfreire         ###   ########.fr        #
+#    Updated: 2023/03/10 16:14:54 by anfreire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,4 +64,11 @@ fclean : clean
 re: fclean all
 
 
-.PHONY: all clean fclean re
+check_leaks: re
+	@echo
+	@echo "\033[1;31m🔎 Checking for leaks...\033[0m"
+	@echo
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+
+
+.PHONY: all clean fclean re check_leaks

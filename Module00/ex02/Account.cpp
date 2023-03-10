@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfreire <anfreire@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: anfreire <anfreire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 01:19:15 by anfreire          #+#    #+#             */
-/*   Updated: 2023/03/04 17:13:31 by anfreire         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:12:42 by anfreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+
+std::string ft_itoa(int nbr)
+{
+	std::string	newString;
+
+	if (nbr < 0)
+	{
+		newString = "-";
+		nbr *= -1;
+	}
+	if (nbr >= 10)
+		newString += ft_itoa(nbr / 10);
+	newString += (nbr % 10) + '0';
+	return newString;
+}
 
 int	Account::getNbAccounts(void)
 {
@@ -108,20 +123,20 @@ void	Account::_displayTimestamp(void)
 {
 	time_t	t = time(0);
 	tm*		now = localtime(&t);
-	std::string	year = mylib::ft_itoa(now->tm_year + 1900);
-	std::string	month = mylib::ft_itoa(now->tm_mon + 1);
+	std::string	year = ft_itoa(now->tm_year + 1900);
+	std::string	month = ft_itoa(now->tm_mon + 1);
 	if (month.length() == 1)
 		month = "0" + month;
-	std::string	day = mylib::ft_itoa(now->tm_mday);
+	std::string	day = ft_itoa(now->tm_mday);
 	if (day.length() == 1)
 		day = "0" + day;
-	std::string	hour = mylib::ft_itoa(now->tm_hour);
+	std::string	hour = ft_itoa(now->tm_hour);
 	if (hour.length() == 1)
 		hour = "0" + hour;
-	std::string	minutes = mylib::ft_itoa(now->tm_min);
+	std::string	minutes = ft_itoa(now->tm_min);
 	if (minutes.length() == 1)
 		minutes = "0" + minutes;
-	std::string	seconds = mylib::ft_itoa(now->tm_sec);
+	std::string	seconds = ft_itoa(now->tm_sec);
 	if (seconds.length() == 1)
 		seconds = "0" + seconds;
 	 std::cout << "[" + year + month + day + "_" + hour + minutes + seconds + "]";
